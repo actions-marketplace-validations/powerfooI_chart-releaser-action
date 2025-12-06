@@ -62,6 +62,9 @@ inputs:
   index_path:
     description: "Path to index file. (default to: .cr-index/index.yaml but it is not set in the action)"
     required: false
+  pr:
+    description: "Create a pull request for index.yaml against the GitHub Pages branch"
+    required: false
 outputs:
   changed_charts:
     description: "A comma-separated list of charts that were released on this run. Will be an empty string if no updates were detected, will be unset if `--skip_packaging` is used: in the latter case your custom packaging step is responsible for setting its own outputs if you need them."
@@ -132,6 +135,10 @@ runs:
 
         if [[ -n "${{ inputs.index_path }}" ]]; then
             args+=(--index-path "${{ inputs.index_path }}")
+        fi
+
+        if [[ -n "${{ inputs.pr }}" ]]; then
+            args+=(--pr "${{ inputs.pr }}")
         fi
 
         "$GITHUB_ACTION_PATH/cr.sh" "${args[@]}"
