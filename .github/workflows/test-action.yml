@@ -19,7 +19,7 @@ jobs:
       statuses: none
     name: Install chart-releaser and test presence in path
     steps:
-    - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
     - name: Install chart-releaser
       uses: ./
       with:
@@ -50,7 +50,7 @@ jobs:
       statuses: none
     name: Install chart-releaser and run it
     steps:
-    - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
     - name: Install chart-releaser
       uses: ./
       env:
